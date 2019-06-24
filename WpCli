@@ -11,7 +11,7 @@ cd /var/www/html/
 rm -rf /var/www/html/index.html
 wp core download --allow-root
 wp core config --dbname=wordpress --dbuser=wordpress --dbpass=wordpress --dbhost=$IP_PRIVATE_BD --dbprefix=wp_ --allow-root
-wp core install --title="Raviel" --admin_user="admin" --admin_password="admin" --allow-root
+wp core install --title="Raviel" --admin_user="admin" --admin_password="bz#0d00" --admin_email="your@email.com" --allow-root
 
 
 

@@ -8,18 +8,13 @@ curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.pha
 chmod +x wp-cli.phar
 sudo mv wp-cli.phar /usr/local/bin/wp
 cd /var/www/html/
-wp core download
+sudo wp core download --locale=pt_BR
 wp core config --dbname=wordpress --dbuser=wordpress --dbpass=wordpress --dbhost=$IP_PRIVATE_BD --dbprefix=wp_
 wp core install --title="Raviel" --admin_user="admin" --admin_password="admin"
 rm -rf /var/www/html/index.html
-sed -i '/warn/a <Directory /var/www/html/>\n   AllowOverride All\n</Directory>' /etc/apache2/sites-available/000-default.conf
 
 a2enmod rewrite
 service apache2 restart
 
-touch /var/www/html/.htaccess
-chown :www-data /var/www/html/.htaccess
-chmod 664 /var/www/html/.htaccess
-systemctl restart apache2
 
 

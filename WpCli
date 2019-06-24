@@ -1,0 +1,16 @@
+apt update 
+apt -y install apache2 apache2-utils 
+systemctl enable apache2 
+systemctl start apache2  
+apt -y install mysql-client
+apt-get install php7.2 php7.2-mysql libapache2-mod-php7.2 php7.2-cli php7.2-cgi php7.2-gd -y
+curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+chmod +x wp-cli.phar
+sudo mv wp-cli.phar /usr/local/bin/wp
+cd /var/www/html/
+wp core download
+wp core config --dbname=wordpress --dbuser=wordpress --dbpass=wordpress --dbhost=$IP_PRIVATE_BD --dbprefix=wp_
+wp core install --title="Raviel" --admin_user="admin" --admin_password="admin"
+systemctl restart apache2
+
+

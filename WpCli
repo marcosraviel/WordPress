@@ -16,20 +16,20 @@ cd /var/www/html/
 rm -rf /var/www/html/index.html
 wp core download --allow-root
 wp core config --dbname=wordpress --dbuser=wordpress --dbpass=wordpress --dbhost=$IP_PRIVATE_BD --dbprefix=wp_ --allow-root
-#wp core install --title="Raviel" --admin_user="$usuario" --admin_password="$senha" --admin_email="your@email.com" --allow-root
-aux=`grep -n '$weblog_title[[:blank:]]*=' /var/www/html/wp-admin/install.php | cut -f 1 -d ":"`
-n=`echo $aux | cut -f 2 -d " "`
-sed -i ""$n"s/: '';/: 'Raviel';/" /var/www/html/wp-admin/install.php
-aux=`grep -n '$user_name[[:blank:]]*=' /var/www/html/wp-admin/install.php | cut -f 1 -d ":"`
-n=`echo $aux | cut -f 2 -d " "`
-sed -i ""$n"s/: '';/: '"$usuario"';/" /var/www/html/wp-admin/install.php
-n=`grep -n '$admin_password[[:blank:]]*=' /var/www/html/wp-admin/install.php | cut -f 1 -d :`
-sed -i ""$n"s/: '';/: '"$senha"';/" /var/www/html/wp-admin/install.php
-n=`grep -n '$admin_password_check[[:blank:]]*=' /var/www/html/wp-admin/install.php | cut -f 1 -d :`
-sed -i ""$n"s/: '';/: '"$senha"';/" /var/www/html/wp-admin/install.php
-aux=`grep -n '$admin_email[[:blank:]]*=' /var/www/html/wp-admin/install.php | cut -f 1 -d ":"`
-n=`echo $aux | cut -f 2 -d " "`
-sed -i ""$n"s/: '';/: 'admin@email.com';/" /var/www/html/wp-admin/install.php
+wp core install --url="" --title="Raviel" --admin_user="$usuario" --admin_password="$senha" --admin_email="your@email.com" --allow-root
+#aux=`grep -n '$weblog_title[[:blank:]]*=' /var/www/html/wp-admin/install.php | cut -f 1 -d ":"`
+#n=`echo $aux | cut -f 2 -d " "`
+#sed -i ""$n"s/: '';/: 'Raviel';/" /var/www/html/wp-admin/install.php
+#aux=`grep -n '$user_name[[:blank:]]*=' /var/www/html/wp-admin/install.php | cut -f 1 -d ":"`
+#n=`echo $aux | cut -f 2 -d " "`
+#sed -i ""$n"s/: '';/: '"$usuario"';/" /var/www/html/wp-admin/install.php
+#n=`grep -n '$admin_password[[:blank:]]*=' /var/www/html/wp-admin/install.php | cut -f 1 -d :`
+#sed -i ""$n"s/: '';/: '"$senha"';/" /var/www/html/wp-admin/install.php
+#n=`grep -n '$admin_password_check[[:blank:]]*=' /var/www/html/wp-admin/install.php | cut -f 1 -d :`
+#sed -i ""$n"s/: '';/: '"$senha"';/" /var/www/html/wp-admin/install.php
+#aux=`grep -n '$admin_email[[:blank:]]*=' /var/www/html/wp-admin/install.php | cut -f 1 -d ":"`
+#n=`echo $aux | cut -f 2 -d " "`
+#sed -i ""$n"s/: '';/: 'admin@email.com';/" /var/www/html/wp-admin/install.php
 
 
 service apache2 restart
